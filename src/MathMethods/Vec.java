@@ -6,7 +6,7 @@ public class Vec {
     public double[] v = new double[3];
 
     /** 构造函数 */
-    public Vec(){}
+    public Vec(){ v[0] = 0;v[1] = 0;v[2] = 0;}
     public Vec(double x,double y,double z){
         v[0] = x;
         v[1] = y;
