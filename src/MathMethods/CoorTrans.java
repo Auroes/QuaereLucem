@@ -1,29 +1,36 @@
 package MathMethods;
-import static Room.Size.oLens;
-import static Room.Size.oWin;
+import static Room.Size.*;
 
 public class CoorTrans {
 
+    /** 透镜坐标转窗坐标 */
     public static Vec lensToWin(Vec lensCoor){
-        return lensCoor.Plus(oWin.Minus(oLens));
+        return lensCoor.Minus(oWin.Minus(oLens));
     }
+    /** 窗坐标转透镜坐标 */
     public static Vec winToLens(Vec winCoor){
-        return winCoor.Minus(oWin.Minus(oLens));
+        return winCoor.Plus(oWin.Minus(oLens));
     }
-    public static Vec winToCylin(Vec lensCoor){
-        Vec winCoor = new Vec();
-        return winCoor;
+    /** 透镜坐标转柱坐标 */
+    public static Vec lensToCylin(Vec lensCoor){
+        double r = Math.sqrt(lensCoor.x()*lensCoor.x()+lensCoor.y()*lensCoor.y());
+        double θ = Math.atan2(lensCoor.y(),lensCoor.x());
+        if (θ < 0) { θ = 2 * Math.PI + θ;}
+        return new Vec(r,θ,lensCoor.z());
     }
-    public static Vec cylinToWin(Vec lensCoor){
-        Vec winCoor = new Vec();
-        return winCoor;
+    /** 柱坐标转透镜坐标 */
+    public static Vec cylinToLens(Vec cylinCoor){
+        double θ = cylinCoor.y();
+        double x = cylinCoor.x() * Math.cos(θ);
+        double y = cylinCoor.x() * Math.sin(θ);
+        return new Vec(x,y, cylinCoor.z());
     }
-    public static Vec eyeToWin(Vec lensCoor){
-        Vec winCoor = new Vec();
-        return winCoor;
+    /** 透镜坐标转眼坐标 */
+    public static Vec lensToEye(Vec lensCoor){
+        return lensCoor.Minus(oEye.Minus(oLens));
     }
-    public static Vec winToEye(Vec lensCoor){
-        Vec winCoor = new Vec();
-        return winCoor;
+    /** 黄斑坐标转眼坐标 */
+    public static Vec eyeToLens(Vec eyeCoor){
+        return eyeCoor.Plus(oEye.Minus(oLens));
     }
 }
