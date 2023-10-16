@@ -18,6 +18,7 @@ public class Lucem {
         this.t = t;
         this.E = E;
     }
+    public Lucem(){}
     /** 返回t时刻光子的位置 */
     public Vec getL(double t){
         return O.Plus(V.nMulti(t));
