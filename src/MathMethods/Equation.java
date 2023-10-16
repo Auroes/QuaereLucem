@@ -1,6 +1,6 @@
 package MathMethods;
 import  MathMethods.Vec;
-import Room.Lucem;
+import  Room.Lucem;
 
 /** 几何方程类 */
 public class Equation {
@@ -19,7 +19,7 @@ public class Equation {
         public Equation(){
         }
 
-        /** 平面点法式方程 A(x-x0)+B(y-y0)+C(z-z0)=0 */
+        /** 平面点法式方程 A(x-x0)+B(y-y0)+C(z-z0)=0 normV(A,B,C) baseV(x0,y0,z0) */
         public Equation(Vec normV,Vec baseV){
             this.a = normV.x();
             this.b = normV.y();
@@ -44,6 +44,9 @@ public class Equation {
         Solution[1] = lucem.O.y() + lucem.V.y()*newLt;
         Solution[2] = lucem.O.z() + lucem.V.z()*newLt;
         Solution[3] = newLt;
+        for (int i = 0; i < 4; i++) {
+            System.out.println(Solution[i]);
+        }
         return Solution;
     }
 

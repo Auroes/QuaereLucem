@@ -9,10 +9,10 @@ public class Lucem {
     public Vec O;
     public Vec V;
     public double t;
-    public byte E;
+    public double E;
 
     /** 构造函数 */
-    public Lucem(Vec O,Vec V,double t,byte E){
+    public Lucem(Vec O,Vec V,double t,double E){
         this.O = O;
         this.V = V;
         this.t = t;
