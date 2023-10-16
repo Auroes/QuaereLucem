@@ -36,7 +36,7 @@ public class Equation {
         return this.abcdEqu;
     }
 
-    /** 联立求解该方程与输入参数的方程 */
+    /** 联立求解该方程与输入光线参数的方程 */
     public double[] simSolut(Lucem lucem){
         double[] Solution = new double[4];
         double newLt = -(a*lucem.O.x() + b*lucem.O.y() + c*lucem.O.z() + d)/(a*lucem.V.x() + b*lucem.V.y() + c*lucem.V.z());
