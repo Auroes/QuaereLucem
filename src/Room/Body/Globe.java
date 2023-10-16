@@ -3,7 +3,7 @@ import  MathMethods.Equation;
 import  MathMethods.Vec;
 import  Room.Lucem;
 
-/** 球体类 */
+/** 球体类 以透镜坐标系为参考 */
 public class Globe {
 
     /** 定义球体的球心 球体的法向量 */
@@ -25,7 +25,6 @@ public class Globe {
     /** 碰撞判断
      *  检测光线是否与平板发生碰撞 */
     public boolean ifCollide(Lucem lucem){
-
         boolean ifCollide = false;
 
         return  ifCollide;
