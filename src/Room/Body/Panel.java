@@ -40,10 +40,10 @@ public class Panel {
             return ifCollide;//直接返回不发生碰撞
         }
         else{
-
+            return ifCollide;
         }
 
 
-        return  ifCollide;
+       // return  ifCollide;
     }
 }
