@@ -23,4 +23,5 @@ public class Lucem {
     public Vec getL(double t){
         return O.Plus(V.nMulti(t));
     }
+    /**  */
 }

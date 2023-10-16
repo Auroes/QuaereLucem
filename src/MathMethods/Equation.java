@@ -1,5 +1,6 @@
 package MathMethods;
 import  MathMethods.Vec;
+import Room.Lucem;
 
 /** 几何方程类 */
 public class Equation {
@@ -34,4 +35,16 @@ public class Equation {
     public double[] getEqu(){
         return this.abcdEqu;
     }
+
+    /** 联立求解该方程与输入参数的方程 */
+    public double[] simSolut(Lucem lucem){
+        double[] Solution = new double[4];
+        double newLt = -(a*lucem.O.x() + b*lucem.O.y() + c*lucem.O.z() + d)/(a*lucem.V.x() + b*lucem.V.y() + c*lucem.V.z());
+        Solution[0] = lucem.O.x() + lucem.V.x()*newLt;
+        Solution[1] = lucem.O.y() + lucem.V.y()*newLt;
+        Solution[2] = lucem.O.z() + lucem.V.z()*newLt;
+        Solution[3] = newLt;
+        return Solution;
+    }
+
 }
