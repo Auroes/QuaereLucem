@@ -89,4 +89,9 @@ public class Vec {
     public Vec Cross(Vec a){
         return new Vec(v[1]*a.z()-v[2]*a.y(),v[2]*a.x()-v[0]*a.z(),v[0]*a.y()-v[1]*a.x());
     }
+
+    /** 以数组形式返回该向量 */
+    public double[] getVec(){
+        return this.v;
+    }
 }

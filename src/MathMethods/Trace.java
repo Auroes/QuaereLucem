@@ -4,7 +4,7 @@ import  Room.Lucem;
 /** 光线追踪方法类 */
 public class Trace {
     /** 反射方法 */
-    public Lucem reflect(Lucem lucem,Linear normV){
+    public Lucem reflect(Lucem lucem, Equation normV){
         Lucem newLucem = new Lucem();
 
         return newLucem;
