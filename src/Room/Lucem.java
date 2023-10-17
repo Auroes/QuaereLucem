@@ -8,7 +8,7 @@ public class Lucem {
     public Vec V;
     public double t;
     public double E;
-    public double n
+    public double n;
 
     /** 定义光线在物体内外的判断标记 在外为 true */
     public boolean outIn = true;
