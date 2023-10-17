@@ -7,7 +7,7 @@ import  Room.Lucem;
 public class Globe {
 
     /** 定义球体的球心 球体的法向量 */
-    public Vec CenterV;
+    public Vec centerV;
     public Vec normV;
     /** 定义球体半径 */
     public double gR;
@@ -16,10 +16,10 @@ public class Globe {
 
     /** 构造方法 */
     public Globe(Vec CenterV,Vec normV,double gR){
-        this.CenterV = CenterV;
+        this.centerV = CenterV;
         this.normV   = normV;
         this.gR      = gR;
-        this.globeEqu = new Equation(this.CenterV,this.normV);
+        this.globeEqu = new Equation(this.centerV,this.normV);
     }
 
     /** 碰撞判断

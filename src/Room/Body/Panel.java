@@ -7,8 +7,8 @@ import  Room.Lucem;
 public class Panel {
 
     /** 定义平板所在平面的法向量 该法向量上平板的基点 */
-    public Vec normV;
-    public Vec baseV;
+    public Vec normV = new Vec();
+    public Vec baseV = new Vec();
     /** 定义该平面在x,y,z上投影矩形的长(x)宽(y)和高(z) */
     public double pX;
     public double pY;
@@ -28,6 +28,14 @@ public class Panel {
             System.out.println("平面投影在一个坐标平面上，必须有一维度为零！");
         }
     }
+    public Panel(Vec normV){
+        this.normV = normV;
+        this.panelEqu = new Equation(this.normV,this.baseV);
+        if(pX != 0 && pY != 0 && pZ != 0){
+            System.out.println("平面投影在一个坐标平面上，必须有一维度为零！");
+        }
+    };
+    public Panel(){};
     /** 碰撞判断
      *  检测光线是否与平板发生碰撞 */
     public boolean ifCollide(Lucem lucem){
