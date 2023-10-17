@@ -23,5 +23,6 @@ public class Lucem {
     public Vec getL(double t){
         return O.Plus(V.nMulti(t));
     }
-    /**  */
+    /** 定义光子的波长 可见光约为[400 700] */
+    double waveL;
 }
