@@ -39,10 +39,10 @@ public class Equation {
     /** 联立求解该方程与输入光线参数的方程 */
     public double[] simSolut(Lucem lucem){
         double[] Solution = new double[4];
-        double newLt = -(a*lucem.O.x() + b*lucem.O.y() + c*lucem.O.z() + d)/(a*lucem.V.x() + b*lucem.V.y() + c*lucem.V.z());
-        Solution[0] = lucem.O.x() + lucem.V.x()*newLt;
-        Solution[1] = lucem.O.y() + lucem.V.y()*newLt;
-        Solution[2] = lucem.O.z() + lucem.V.z()*newLt;
+        double newLt = -(a*lucem.O.x() + b*lucem.O.y() + c*lucem.O.z() + d)/(a*lucem.D.x() + b*lucem.D.y() + c*lucem.D.z());
+        Solution[0] = lucem.O.x() + lucem.D.x()*newLt;
+        Solution[1] = lucem.O.y() + lucem.D.y()*newLt;
+        Solution[2] = lucem.O.z() + lucem.D.z()*newLt;
         Solution[3] = newLt;
         for (int i = 0; i < 4; i++) {
             System.out.println(Solution[i]);

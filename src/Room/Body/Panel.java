@@ -43,7 +43,7 @@ public class Panel {
         boolean ifCollide = false;
 
         /** 先判断光线是否与平板所在的平面平行 */
-        if(Math.abs(this.normV.Dot(lucem.V)) == 0) {//光线的速度向量与平面的法向量垂直时则平行
+        if(Math.abs(this.normV.Dot(lucem.D)) == 0) {//光线的速度向量与平面的法向量垂直时则平行
             return ifCollide;//直接返回不发生碰撞
         }
         else{

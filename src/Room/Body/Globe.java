@@ -6,13 +6,10 @@ import  Room.Lucem;
 /** 球体类 以透镜坐标系为参考 */
 public class Globe {
 
-    /** 定义球体的球心 球体的法向量 */
-    public Vec centerV;
-    public Vec normV;
-    /** 定义球体半径 */
-    public double gR;
-    /** 定义该球体的方程 */
-    public Equation globeEqu = new Equation();
+    public Vec centerV;//球心
+    public Vec normV;  //法向量
+    public double gR;  //半径
+    public Equation globeEqu = new Equation();//定义该球体方程
 
     /** 构造方法 */
     public Globe(Vec CenterV,Vec normV,double gR){
@@ -23,9 +20,10 @@ public class Globe {
     }
 
     /** 碰撞判断
-     *  检测光线是否与平板发生碰撞 */
+     *  检测光线是否与球体发生碰撞 */
     public boolean ifCollide(Lucem lucem){
         boolean ifCollide = false;
+
 
         return  ifCollide;
     }
