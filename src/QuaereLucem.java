@@ -1,92 +1,66 @@
 import com.formdev.flatlaf.FlatDarkLaf;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class QuaereLucem {
     public static void main(String[] args) {
-        RUN();
-    }
-    public static void RUN() {
         FlatDarkLaf.setup();
         JFrame frame = new JFrame("Quaere Lucem");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
+        frame.setSize(600, 300);
 
-        JPanel panel = new JPanel();
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("形状");
+        model.addColumn("材质");
 
-        JComboBox<String> colorComboBox = new JComboBox<>(new String[]{"Red", "Yellow"});
-        JButton createButton = new JButton("创建");
-        JPanel shapePanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                g.setColor(shapeColor);
+        JTable table = new JTable(model);
+        JScrollPane scrollPane = new JScrollPane(table);
 
-                if (selectedShape.equals("Circle")) {
-                    g.fillOval(50, 50, 100, 100);
-                } else if (selectedShape.equals("Square")) {
-                    g.fillRect(50, 50, 100, 100);
-                } else if (selectedShape.equals("Triangle")) {
-                    int[] xPoints = {100, 50, 150};
-                    int[] yPoints = {50, 150, 150};
-                    g.fillPolygon(xPoints, yPoints, 3);
-                } else if (selectedShape.equals("Rectangle")) {
-                    g.fillRect(50, 50, 150, 100);
-                }
-            }
-        };
+        // Add JComboBox editors for the "Shape" and "Material" columns
+        JComboBox<String> shapeComboBox = new JComboBox<>(new String[]{"球体", "平板","立方体"});
+        TableColumn shapeColumn = table.getColumnModel().getColumn(0);
+        shapeColumn.setCellEditor(new DefaultCellEditor(shapeComboBox));
 
-        createButton.addActionListener(new ActionListener() {
+        JComboBox<String> materialComboBox = new JComboBox<>(new String[]{"空气", "水","石英"});
+        TableColumn materialColumn = table.getColumnModel().getColumn(1);
+        materialColumn.setCellEditor(new DefaultCellEditor(materialComboBox));
+
+        JPanel buttonPanel = new JPanel();
+        JButton addButton = new JButton("+");
+        buttonPanel.add(addButton);
+
+        addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String selectedColor = (String) colorComboBox.getSelectedItem();
-                selectedShape = showShapeDialog(frame, selectedColor);
-                switch (selectedColor) {
-                    case "Red":
-                        shapeColor = Color.RED;
-                        break;
-                    case "Yellow":
-                        shapeColor = Color.YELLOW;
-                        break;
-                    default:
-                        shapeColor = Color.BLACK;
-                        break;
-                }
-                shapePanel.repaint();
+                String shape = (String) shapeComboBox.getSelectedItem();
+                String material = (String) materialComboBox.getSelectedItem();
+                model.addRow(new Object[]{shape, material});
             }
         });
 
-        panel.add(colorComboBox);
-        panel.add(createButton);
+        // Create a new panel to wrap the components
+        JPanel topPanel = new JPanel(new BorderLayout());
+        JLabel addLabel = new JLabel("配置场景物体");
+        topPanel.add(addLabel, BorderLayout.WEST);
+        topPanel.add(buttonPanel, BorderLayout.EAST);
 
-        frame.add(panel, BorderLayout.NORTH);
-        frame.add(shapePanel, BorderLayout.CENTER);
+        JPanel leftPanel = new JPanel(new BorderLayout());
+        leftPanel.add(topPanel, BorderLayout.NORTH);
+        leftPanel.add(scrollPane, BorderLayout.CENTER);
+
+        // Create an EmptyBorder to add some space on the right side of the left panel
+        leftPanel.setBorder(BorderFactory.createEmptyBorder(-5, 10, 10, 10)); // Adjust the right m
+        //leftPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0)); // Adjust the right margin as needed
+
+
+        frame.setLayout(new BorderLayout());
+        frame.add(leftPanel, BorderLayout.WEST);
 
         frame.setVisible(true);
-    }
-
-    private static Color shapeColor = Color.BLACK;
-    private static String selectedShape = "Circle";
-
-    private static String showShapeDialog(JFrame parent, String color) {
-        String[] options;
-        if (color.equals("Red")) {
-            options = new String[]{"Circle", "Square"};
-        } else if (color.equals("Yellow")) {
-            options = new String[]{"Triangle", "Rectangle"};
-        } else {
-            options = new String[]{"Circle", "Square"};
-        }
-
-        int response = JOptionPane.showOptionDialog(parent, "Select Shape:", "Shape Selection",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-
-        if (response == JOptionPane.CLOSED_OPTION) {
-            return selectedShape; // Keep the previous selection if the dialog is closed
-        } else {
-            return options[response];
-        }
     }
 }
