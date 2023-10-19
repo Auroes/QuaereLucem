@@ -1,10 +1,10 @@
-package Room.Body;
+package Stock.Shape;
 import  MathMethods.Equation;
 import  MathMethods.Vec;
 import  Room.Lucem;
 
 /** 平板类 以透镜坐标系为参考 */
-public class Panel {
+public class Flat extends zeroShape {
 
     /** 定义平板所在平面的法向量 该法向量上平板的基点 */
     public Vec normV = new Vec();
@@ -17,7 +17,7 @@ public class Panel {
     public Equation panelEqu = new Equation();
 
     /** 构造方法 */
-    public Panel(Vec normV,Vec baseV,double pX,double pY,double pZ){
+    public Flat(Vec normV, Vec baseV, double pX, double pY, double pZ){
         this.normV = normV;
         this.baseV = baseV;
         this.pX = pX;
@@ -28,14 +28,14 @@ public class Panel {
             System.out.println("平面投影在一个坐标平面上，必须有一维度为零！");
         }
     }
-    public Panel(Vec normV){
+    public Flat(Vec normV){
         this.normV = normV;
         this.panelEqu = new Equation(this.normV,this.baseV);
         if(pX != 0 && pY != 0 && pZ != 0){
             System.out.println("平面投影在一个坐标平面上，必须有一维度为零！");
         }
     };
-    public Panel(){};
+    public Flat(){};
     /** 碰撞判断
      *  检测光线是否与平板发生碰撞 */
     public boolean ifCollide(Lucem lucem){

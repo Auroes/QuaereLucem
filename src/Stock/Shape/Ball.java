@@ -1,10 +1,10 @@
-package Room.Body;
+package Stock.Shape;
 import  MathMethods.Equation;
 import  MathMethods.Vec;
 import  Room.Lucem;
 
 /** 球体类 以透镜坐标系为参考 */
-public class Globe {
+public class Ball extends zeroShape {
 
     public Vec centerV;//球心
     public Vec normV;  //法向量
@@ -12,7 +12,7 @@ public class Globe {
     public Equation globeEqu = new Equation();//定义该球体方程
 
     /** 构造方法 */
-    public Globe(Vec CenterV,Vec normV,double gR){
+    public Ball(Vec CenterV, Vec normV, double gR){
         this.centerV = CenterV;
         this.normV   = normV;
         this.gR      = gR;
