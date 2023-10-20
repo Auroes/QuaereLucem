@@ -240,4 +240,7 @@ public class QuaereLucem {
 
         frame.setVisible(true);
     }
+
+
+
 }
