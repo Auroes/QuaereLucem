@@ -174,7 +174,7 @@ public class QuaereLucem {
         frame.add(Panel1, BorderLayout.WEST);
         frame.add(Panel2, BorderLayout.EAST);
         frame.add(Panel3, BorderLayout.SOUTH);
-1
+
         frame.setVisible(true);
     }
 }
