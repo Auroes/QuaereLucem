@@ -441,6 +441,8 @@ public class GUI {
         QLFrame.add(P2);
         QLFrame.add(P3);
         QLFrame.add(P4);
+        Image icon = Toolkit.getDefaultToolkit().getImage("icon/QuaereLucem.png");
+        QLFrame.setIconImage(icon);
         QLFrame.setVisible(true);
     }
 }
