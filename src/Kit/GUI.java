@@ -17,7 +17,7 @@ public class GUI {
         JFrame QLFrame = new JFrame("Quaere Lucem");
         QLFrame.setLayout(new GridLayout(2,2));//栅格布局
         QLFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        QLFrame.setSize(1280, 720);
+        QLFrame.setSize(1778, 1000);
         /** 创建次面板 */
         JPanel P1 = new JPanel(new BorderLayout());//边框布局
         JPanel P2 = new JPanel(new BorderLayout());
@@ -257,43 +257,151 @@ public class GUI {
         });
         /** 底部面板 */
         JPanel Down = new JPanel(new BorderLayout());
-        JPanel Settings = new JPanel(new GridLayout(1,4));
-        JPanel Readme = new JPanel();
+        JPanel DownTop = new JPanel(new GridLayout(1,2,20,20));
+        JPanel Settings = new JPanel(new GridLayout(7,1,20,20));
+        JPanel Readme = new JPanel(new BorderLayout());
 
-        JPanel SetP1 = new JPanel(new BorderLayout());
-        JPanel SetP2 = new JPanel(new BorderLayout());
-        JPanel SetP3 = new JPanel(new BorderLayout());
-        JPanel SetP4 = new JPanel(new BorderLayout());
+        JPanel SetP1 = new JPanel(new GridLayout(1,2));
+        JPanel SetP2 = new JPanel(new GridLayout(1,2));
+        JPanel SetP3 = new JPanel(new GridLayout(1,2));
+        JPanel SetP4 = new JPanel(new GridLayout(1,2));
+        JPanel SetP5 = new JPanel(new GridLayout(1,2));
+        JPanel SetP6 = new JPanel(new GridLayout(1,2));
+        JPanel SetP7 = new JPanel(new BorderLayout());
 
         JLabel set1 = new JLabel("扫描解析度");
         JLabel set2 = new JLabel("基准三原色");
         JLabel set3 = new JLabel("高斯滤波器");
         JLabel set4 = new JLabel("边缘锐化度");
-        String[] set1_1 = {"360", "720", "1080", "1440", "2160", "4320"};
+        JLabel set5 = new JLabel("图编码格式");
+        JLabel set6 = new JLabel("是否输出源");
+        JLabel set7 = new JLabel("图输出地址");
+
+        String[] set1_1 = {"360×640 pi", "720×1280 pi", "1080×1920 pi", "1440×2560 pi", "2160×3840 pi", "4320×7680 pi"};
         JComboBox<String> SetC1 = new JComboBox<>(set1_1);
+        SetC1.setRenderer(new DefaultListCellRenderer() { // 创建自定义渲染器并设置文本居中
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setHorizontalAlignment(CENTER);
+                return this;
+            }
+        });
         SetP1.add(set1);
         SetP1.add(SetC1);
         Settings.add(SetP1);
+        DownTop.add(Settings);
 
-
-
-
-        String[] set2_1 = {"360", "720", "1080", "1440", "2160", "4320"};
-        JComboBox<String> SetC2 = new JComboBox<>(set2_1);
+        JTextField set2_1 = new JTextField("L=564,M=534,S=420");
         SetP2.add(set2);
-        SetP2.add(SetC2);
+        SetP2.add(set2_1);
         Settings.add(SetP2);
 
+        String[] set3_1 = {"1X", "2X", "4X", "8X", "16X"};
+        JComboBox<String> SetC3 = new JComboBox<>(set3_1);
+        SetC3.setRenderer(new DefaultListCellRenderer() { // 创建自定义渲染器并设置文本居中
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setHorizontalAlignment(CENTER);
+                return this;
+            }
+        });
+        SetP3.add(set3);
+        SetP3.add(SetC3);
+        Settings.add(SetP3);
+        DownTop.add(Settings);
 
+        String[] set4_1 = {"1X", "2X", "4X", "8X", "16X"};
+        JComboBox<String> SetC4 = new JComboBox<>(set4_1);
+        SetC4.setRenderer(new DefaultListCellRenderer() { // 创建自定义渲染器并设置文本居中
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setHorizontalAlignment(CENTER);
+                return this;
+            }
+        });
+        SetP4.add(set4);
+        SetP4.add(SetC4);
+        Settings.add(SetP4);
+        DownTop.add(Settings);
 
+        String[] set5_1 = {"JPG", "PNG", "TIF", "PPM"};
+        JComboBox<String> SetC5 = new JComboBox<>(set5_1);
+        SetC5.setRenderer(new DefaultListCellRenderer() { // 创建自定义渲染器并设置文本居中
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setHorizontalAlignment(CENTER);
+                return this;
+            }
+        });
+        SetP5.add(set5);
+        SetP5.add(SetC5);
+        Settings.add(SetP5);
+        DownTop.add(Settings);
 
+        String[] set6_1 = {"是", "否"};
+        JComboBox<String> SetC6 = new JComboBox<>(set6_1);
+        SetC6.setRenderer(new DefaultListCellRenderer() { // 创建自定义渲染器并设置文本居中
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setHorizontalAlignment(CENTER);
+                return this;
+            }
+        });
+        SetP6.add(set6);
+        SetP6.add(SetC6);
+        Settings.add(SetP6);
+        DownTop.add(Settings);
 
+        JButton Button = new JButton("保存地址");
+        JTextField Field = new JTextField(26);
+        Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    Field.setText(fileChooser.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
+        SetP7.add(Button,BorderLayout.WEST);
+        SetP7.add(Field,BorderLayout.EAST);
+        Settings.add(SetP7);
+        DownTop.add(Settings);
+        DownTop.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
 
-        Down.add(Settings,BorderLayout.WEST);
-        Down.add(Readme,BorderLayout.EAST);
-
-
+        JTextPane textPane = new JTextPane();
+        textPane.setEditable(false); // 文本不可编辑
+        textPane.setContentType("text/html");
+        String readme = "<html><p><b><big>README</p>" +
+                "<p>Cameras:&nbsp;相机模型决定了从哪里以及用怎样的方式去观察观景(游戏中的世界)，" +
+                "包括场景图像是怎样被记录在传感器上的。许多渲染系统都是以相机为原点发射视线(viewing&nbsp;ray)，" +
+                "射入到场景，进行追踪。Ray-object&nbsp;intersections:&nbsp;必须能能够精确地判断一个给定的射线" +
+                "(光线或视线)与场景中的物体是否发生碰撞，以及碰撞的具体位置。也要能够确定碰撞点处场景物体的一些属性，如" +
+                "：法线、材质。许多光线追踪器(ray&nbsp;tracers)提供了用于碰撞检测的工具，尤其是一条射线可能与场景中多" +
+                "个物体发生碰撞时，通常要找出最近的碰撞点。Light&nbsp;sources:&nbsp;没有光源，谈渲染场景毫无意义。" +
+                "Ray&nbsp;tracer要对穿过场景的光的分布(distribution)进行建模，包括光的位置，能量在空间中的分布。Visibility:&nbsp;" +
+                "为了知道给定的光源(light)在表面某一点是否存储能量(deposit&nbsp;energy)，必须知道从这一点到光源是否有一条不间断的路径。" +
+                "这很容易实现：只需要构建一条从表面点到光源的射线，计算最近的ray-object相交点，比较表面点到相交点的距离和表面点到光源的距离。" +
+                "Surface&nbsp;scattering:&nbsp;光的散射(指光通过不均匀介质时一部分光偏离原方向传播的现象，偏离原方向的光称为散射光)。" +
+                "每个物体必须对自己的样子(即材质，material)有一个描述，包括光怎么和该对象的表面进行交互，散射光的性质。表面散射模型通常是参数化的，" +
+                "这样就可以模拟各种各样的物体外观(材质)。Indirect&nbsp;light&nbsp;transport:&nbsp;间接光的传输。因为光可能穿过表面A" +
+                "，或在表面B进行反射后，才到达表面C，因此需要追踪间接光，即源点在表面上的光线。其实生活中看到的大部分光都是间接光。Ray&nbsp;propag" +
+                "ation：光线传播。我们需要知道光穿过空间时发生了什么。如果渲染真空中的一个场景，则光的能量在传播过程中保持恒定。但地球上很少有真空存在，" +
+                "很多情况下可以“假装”(近似)是真空。光穿过雾、烟、大气层等的的情况更为复杂。<br>" + "</p></p></html>";
+        textPane.setText(readme);
+        JScrollPane scrollPane = new JScrollPane(textPane);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        Readme.add(scrollPane, BorderLayout.CENTER);
+        DownTop.add(Readme);
+        Down.add(DownTop,BorderLayout.CENTER);
 
         JProgressBar progressBar = new JProgressBar();// 创建进度条
         progressBar.setStringPainted(true); //显示百分比
@@ -301,7 +409,7 @@ public class GUI {
         Dimension preferredSize = new Dimension(460, 20);//更改进度条的尺寸
         progressBar.setPreferredSize(preferredSize);
         JButton startButton = new JButton("开始");
-        startButton.addActionListener(e -> {
+        outB.addActionListener(e -> {
             // 模拟任务的进度
             int progress = 0;
             while (progress <= 100) {
@@ -316,13 +424,13 @@ public class GUI {
         });
 
         // 创建一个面板并将进度条和按钮添加到面板
-        JPanel PBar = new JPanel();
-        PBar.add(progressBar);
-        PBar.add(startButton);
+        JPanel PBar = new JPanel(new BorderLayout());
+        PBar.add(progressBar,BorderLayout.SOUTH);
+        PBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 2, 5));
+
         Down.add(PBar,BorderLayout.SOUTH);
         Down.setVisible(true);
         P4.add(Down);
-
 
         P1.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 20));
         P2.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 20));
