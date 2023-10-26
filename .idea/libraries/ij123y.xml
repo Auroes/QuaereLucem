@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ij123y">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../ij123y.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

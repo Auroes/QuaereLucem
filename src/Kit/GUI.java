@@ -1,7 +1,5 @@
 package Kit;
-
 import com.formdev.flatlaf.FlatDarkLaf;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -9,6 +7,8 @@ import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static Kit.HDR.outHDR;
 
 public class GUI {
     public static void starGUI(){
@@ -251,6 +251,18 @@ public class GUI {
         outB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                outHDR(2,2);
+
+
+
+
+
+
+
+
+
+
+
 
 
             }
@@ -406,12 +418,11 @@ public class GUI {
         JProgressBar progressBar = new JProgressBar();// 创建进度条
         progressBar.setStringPainted(true); //显示百分比
         progressBar.setValue(0); // 设置进度条初始值
-        Dimension preferredSize = new Dimension(460, 20);//更改进度条的尺寸
-        progressBar.setPreferredSize(preferredSize);
-        JButton startButton = new JButton("开始");
-        outB.addActionListener(e -> {
-            // 模拟任务的进度
-            int progress = 0;
+        Dimension preferredSize = new Dimension(460, 20);
+        progressBar.setPreferredSize(preferredSize);//更改进度条的尺寸
+        outB.addActionListener(e -> {//开始输出
+           int progress = 50;
+
             while (progress <= 100) {
                 progressBar.setValue(progress);
                 try {
@@ -419,8 +430,13 @@ public class GUI {
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
-                progress += 10;
+                progress += 1;
+                System.out.println(HDR.index);
             }
+           //while (progress <= 100) {
+           //     progress = (int)((float)(HDR.index/20000))*100;
+           //     progressBar.setValue(progress);
+           //}
         });
 
         // 创建一个面板并将进度条和按钮添加到面板

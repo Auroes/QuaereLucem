@@ -9,5 +9,12 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="flatlaf-3.2.2" level="project" />
     <orderEntry type="library" name="flatlaf-3.2" level="project" />
+    <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
+    <orderEntry type="library" name="JTransforms-3.1" level="project" />
+    <orderEntry type="library" name="JLargeArrays-1.6-with-dependencies" level="project" />
+    <orderEntry type="library" name="jfreechart-1.5.3" level="project" />
+    <orderEntry type="library" name="ij123y" level="project" />
+    <orderEntry type="library" name="javacpp-1.4.1" level="project" />
+    <orderEntry type="library" name="opencv-3.4.1-1.4.1" level="project" />
   </component>
 </module>

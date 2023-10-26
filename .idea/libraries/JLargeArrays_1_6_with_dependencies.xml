@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JLargeArrays-1.6-with-dependencies">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../JLargeArrays-1.6-with-dependencies.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
